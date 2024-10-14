@@ -1,4 +1,4 @@
-import key from "./key.js";
+import key from "../components/key.js";
 
 async function getPopularMovies() {
   try {
@@ -13,19 +13,21 @@ async function getPopularMovies() {
   }
 }
 
+getPopularMovies();
+
 export async function createPopularMoviesCarousel() {
   const moviesArray = await getPopularMovies();
   //   console.log(moviesArray);
   let carouselHTML = "";
   for (let i = 0; i < 10; i++) {
-    carouselHTML += `<div class ="movie-frame" id="movie-frame-${moviesArray[i].id}">
+    carouselHTML += /*html*/ `<div class ="movie-frame" id="movie-frame-${moviesArray[i].id}">
     <img
       src="https://image.tmdb.org/t/p/original${moviesArray[i].poster_path}"
       alt="Poster ${i}"
     />
+
   </div>`;
   }
-  //   console.log(carouselHTML);
   return carouselHTML;
 }
 // createPopularMoviesCarousel();
