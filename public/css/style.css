@@ -136,10 +136,11 @@ button {
 
 .movie-frame {
   background-color: #1c1c1c;
-  padding: 3.3rem;
+  padding: 1.85rem;
   flex: 0 0 auto;
   border-radius: 1rem;
   margin: 0 10px;
+  position: relative;
 }
 
 .movie-frame img {
@@ -160,6 +161,7 @@ button {
 
 .prev {
   left: 0;
+  z-index: 10;
 }
 
 .next {
@@ -168,4 +170,25 @@ button {
 
 .popular-title {
   padding: 1.6rem 3.12rem;
+}
+
+.paragrafo-box-filme {
+  position: relative;
+  max-width: 20rem;
+  font-size: 1.6rem;
+  white-space: nowrap; /* Impede a quebra de linha */
+  overflow: hidden; /* Oculta o conteúdo que não cabe */
+  text-overflow: ellipsis;
+}
+
+.rating-box-filme {
+  position: absolute;
+  right: 3.3rem;
+  font-size: 1.33rem;
+  padding: 1.28rem;
+  background-color: #121212;
+  width: fit-content;
+  border-radius: 50%;
+  color: rgb(255, 247, 0);
+  transform: translate(50%, -25%);
 }
