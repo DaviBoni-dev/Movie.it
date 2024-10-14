@@ -1,0 +1,164 @@
+/* Sistema de Tamanhos - https://typescale.com/ 
+
+Fontes - Minor Third - 1.200 - Em PX
+4.4 - 5.4 - 6.4 - 7.7 - 9.2 - 11.1 - 13.3 - 16 - 19.2 - 23 - 27.6 - 33.2 - 39.8 - 47.8 - 57.3 - 68.8 - 82.6
+
+Espaçamentos - Major Third - 1.250 - Em PX
+2.1 - 2.7 - 3.3 - 4.2 - 5.2 - 6.5 - 8.2 - 10.2 - 12.8 - 16 - 20 - 25 - 31.2 - 39 - 48.8 - 61 - 76.3 - 95.4 - 119.2
+
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Lexend Deca", sans-serif;
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1.4;
+  background-color: #121212;
+  height: 100dvh;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+header {
+  width: 100%;
+  background-color: #1c1c1c;
+  color: #fff;
+  padding: 1.6rem 3.12rem;
+}
+
+.header-left {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+ul {
+  list-style-type: none;
+  display: flex;
+}
+
+li {
+  margin-right: 1rem;
+}
+/*
+
+
+.movie-frame {
+  background-color: #1c1c1c;
+  padding: 3.3rem;
+  flex: 0 0 auto;
+  border-radius: 1rem;
+  margin-left: 2.1rem;
+}
+
+.movie-frame img {
+  width: 200px;
+  border-radius: 1rem;
+}
+
+.movies-box {
+  display: flex;
+  flex-direction: row;
+  transition: transform 0.5s ease;
+  overflow-x: auto;
+}
+
+/* Carrossel 
+.carousel-container {
+  position: relative;
+  width: 100%; /* Ajuste conforme necessário 
+  margin: auto;
+  overflow: auto; /* Oculta as imagens fora do container 
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+ */
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  margin: auto;
+  overflow-x: hidden;
+}
+
+.movies-box {
+  display: flex;
+  flex-direction: row;
+  overflow-x: scroll;
+  overflow: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+.movie-frame {
+  background-color: #1c1c1c;
+  padding: 3.3rem;
+  flex: 0 0 auto;
+  border-radius: 1rem;
+  margin: 0 10px;
+}
+
+.movie-frame img {
+  width: 200px;
+  border-radius: 1rem;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+
+.popular-title {
+  padding: 1.6rem 3.12rem;
+}
