@@ -1,22 +1,25 @@
-const carousel = document.getElementById("carousel");
-const prevButton = document.getElementById("prev");
-const nextButton = document.getElementById("next");
+import { getPopularMovies } from "../api/getMovies";
 
-// Define a quantidade de pixels que o carrossel deve rolar a cada clique
-const scrollAmount = 591;
+export async function createPopularMoviesCarousel() {
+  const moviesArray = await getPopularMovies();
+  //   console.log(moviesArray);
+  let carouselHTML = "";
+  for (let i = 0; i < 20; i++) {
+    carouselHTML += /*html*/ `<div class ="movie-frame" id="movie-frame-${
+      moviesArray[i].id
+    }">
+    <p class="rating-box-filme">${Number(moviesArray[i].vote_average).toFixed(
+      1
+    )}</p>
+    <img
+      src="https://image.tmdb.org/t/p/original${moviesArray[i].poster_path}"
+      alt="Poster ${i}"
+    />
+    <p class="paragrafo-box-filme" title="${moviesArray[i].title}">${
+      moviesArray[i].title
+    }</p>
 
-// Rola para a esquerda quando a seta "prev" é clicada
-prevButton.addEventListener("click", () => {
-  carousel.scrollBy({
-    left: -scrollAmount,
-    behavior: "smooth",
-  });
-});
-
-// Rola para a direita quando a seta "next" é clicada
-nextButton.addEventListener("click", () => {
-  carousel.scrollBy({
-    left: scrollAmount,
-    behavior: "smooth",
-  });
-});
+  </div>`;
+  }
+  return carouselHTML;
+}
