@@ -64,7 +64,9 @@ li {
   margin-right: 1rem;
 }
 
-.paragrafo-box {
+.popular-movies,
+.trending-movies {
+  /* margin-bottom: 3.12rem;*/
 }
 
 .carousel-container {
@@ -118,7 +120,8 @@ button {
   right: 0;
 }
 
-.popular-title {
+.popular-title,
+.trending-title {
   padding: 1.6rem 3.12rem;
 }
 

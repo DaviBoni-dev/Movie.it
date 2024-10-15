@@ -1,11 +1,11 @@
 import { getPopularMovies } from "../api/getMovies";
 
-export async function createPopularMoviesCarousel() {
-  const moviesArray = await getPopularMovies();
+export async function createMoviesCarousel(func, type) {
+  const moviesArray = await func();
   //   console.log(moviesArray);
   let carouselHTML = "";
   for (let i = 0; i < 20; i++) {
-    carouselHTML += /*html*/ `<div class ="movie-frame" id="movie-frame-${
+    carouselHTML += /*html*/ `<div class ="movie-frame" id="movie-frame-${type}-${
       moviesArray[i].id
     }">
     <p class="rating-box-filme">${Number(moviesArray[i].vote_average).toFixed(
