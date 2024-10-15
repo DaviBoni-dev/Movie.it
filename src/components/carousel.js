@@ -3,7 +3,7 @@ const prevButton = document.getElementById("prev");
 const nextButton = document.getElementById("next");
 
 // Define a quantidade de pixels que o carrossel deve rolar a cada clique
-const scrollAmount = 514;
+const scrollAmount = 591;
 
 // Rola para a esquerda quando a seta "prev" é clicada
 prevButton.addEventListener("click", () => {

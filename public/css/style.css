@@ -66,56 +66,6 @@ li {
 
 .paragrafo-box {
 }
-/*
-
-
-.movie-frame {
-  background-color: #1c1c1c;
-  padding: 3.3rem;
-  flex: 0 0 auto;
-  border-radius: 1rem;
-  margin-left: 2.1rem;
-}
-
-.movie-frame img {
-  width: 200px;
-  border-radius: 1rem;
-}
-
-.movies-box {
-  display: flex;
-  flex-direction: row;
-  transition: transform 0.5s ease;
-  overflow-x: auto;
-}
-
-/* Carrossel 
-.carousel-container {
-  position: relative;
-  width: 100%; /* Ajuste conforme necessário 
-  margin: auto;
-  overflow: auto; /* Oculta as imagens fora do container 
-}
-
-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.5);
-  color: white;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-}
-
-.prev {
-  left: 0;
-}
-
-.next {
-  right: 0;
-}
- */
 
 .carousel-container {
   position: relative;
@@ -144,7 +94,7 @@ button {
 }
 
 .movie-frame img {
-  width: 200px;
+  width: 14rem;
   border-radius: 1rem;
 }
 
@@ -174,7 +124,7 @@ button {
 
 .paragrafo-box-filme {
   position: relative;
-  max-width: 20rem;
+  max-width: 14rem;
   font-size: 1.6rem;
   white-space: nowrap; /* Impede a quebra de linha */
   overflow: hidden; /* Oculta o conteúdo que não cabe */
