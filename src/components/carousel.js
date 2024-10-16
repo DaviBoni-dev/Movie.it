@@ -1,14 +1,10 @@
-export async function createMoviesCarousel(func, type) {
-  const moviesArray = await func();
-  //   console.log(moviesArray);
+export async function createMoviesCarousel(func, type, trendingtype = null) {
+  const moviesArray = await func(trendingtype);
+  console.log(moviesArray);
   let carouselHTML = "";
   for (let i = 0; i < 20; i++) {
-    carouselHTML += /*html*/ `<div class ="movie-frame" id="movie-frame-${type}-${
-      moviesArray[i].id
-    }">
-    <p class="rating-box-filme">${Number(moviesArray[i].vote_average).toFixed(
-      1
-    )}</p>
+    carouselHTML += /*html*/ `<div class ="movie-frame" id="movie-frame-${type}">
+    <p class="rating-box-filme">${teste(moviesArray[i])}</p>
     <img
       src="https://image.tmdb.org/t/p/original${moviesArray[i].poster_path}"
       alt="Poster ${i}"
@@ -19,5 +15,13 @@ export async function createMoviesCarousel(func, type) {
 
   </div>`;
   }
+  console.log(carouselHTML);
   return carouselHTML;
+}
+
+function teste(movie) {
+  if (movie.vote_average > 0) {
+    return Number(movie.vote_average).toFixed(1);
+  }
+  return "NA";
 }

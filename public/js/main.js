@@ -5,18 +5,28 @@ import {
 } from "../../src/api/getMovies.js";
 
 const carouselPopularEl = document.getElementById("carousel-popular");
-const moviesPopularContainer = await createMoviesCarousel(
-  getPopularMovies,
-  "popular"
-);
-carouselPopularEl.innerHTML = moviesPopularContainer;
+
+async function putPopularCarousel() {
+  const moviesPopularContainer = await createMoviesCarousel(
+    getPopularMovies,
+    "popular"
+  );
+  carouselPopularEl.innerHTML = moviesPopularContainer;
+}
 
 const carouselTrendingEl = document.getElementById("carousel-trending");
-const moviesTrendingContainer = await createMoviesCarousel(
-  getTrendingMovies,
-  "trending"
-);
-carouselTrendingEl.innerHTML = moviesTrendingContainer;
+
+async function putTrendingCarousel(time_window = "day") {
+  const moviesTrendingContainer = await createMoviesCarousel(
+    getTrendingMovies,
+    "trending",
+    time_window
+  );
+  carouselTrendingEl.innerHTML = moviesTrendingContainer;
+}
+
+putPopularCarousel();
+putTrendingCarousel();
 
 const prevPopularButton = document.getElementById("prev-popular");
 const nextPopularButton = document.getElementById("next-popular");
@@ -56,4 +66,14 @@ nextTrendingButton.addEventListener("click", () => {
     left: scrollAmount,
     behavior: "smooth",
   });
+});
+
+const dayButton = document.getElementById("trending-day-button");
+const weekButton = document.getElementById("trending-week-button");
+
+dayButton.addEventListener("click", () => {
+  putTrendingCarousel("day");
+});
+weekButton.addEventListener("click", () => {
+  putTrendingCarousel("week");
 });

@@ -5,8 +5,9 @@ export async function getPopularMovies() {
     let url = `https://api.themoviedb.org/3/movie/popular?api_key=${key}&language=en&region=BR&page=1`;
     const response = await fetch(url);
     const data = await response.json();
-    console.log("data: ", data.results);
-    const result = data.results;
+    // console.log("data: ", data);
+    let result = data.results;
+    result = adjustArray(result);
     return result;
   } catch (error) {
     throw error;
@@ -15,15 +16,36 @@ export async function getPopularMovies() {
 
 export async function getTrendingMovies(timeWindow) {
   try {
-    let url = `https://api.themoviedb.org/3/trending/movie/week?api_key=${key}&language=en&region=BR&page=1`;
+    let url = `https://api.themoviedb.org/3/trending/movie/${timeWindow}?api_key=${key}&language=en&region=BR&page=1`;
     const response = await fetch(url);
     const data = await response.json();
-    console.log("data: ", data.results.length);
-    const result = data.results;
+    //console.log("data: ", data.results[0]);
+    //adjustArray(data);
+    let result = data.results;
+    result = adjustArray(result);
+    // console.log(result);
     return result;
   } catch (error) {
     throw error;
   }
 }
 
-getTrendingMovies();
+function adjustArray(moviesArray) {
+  for (let i = 0; i < moviesArray.length; i++) {
+    if (Number(moviesArray[i].vote_average) == 0) {
+      moviesArray[i].vote_average = "NA";
+      // console.log("igual");
+    }
+  }
+
+  return moviesArray;
+}
+
+//getTrendingMovies("day");
+
+//const teste = await getTrendingMovies("day");
+//console.log(teste);
+//adjustArray(teste);
+
+//const teste2 = array(teste[0]);
+//console.log(teste2);

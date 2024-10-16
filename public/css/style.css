@@ -146,3 +146,27 @@ li {
   color: rgb(255, 247, 0);
   transform: translate(50%, -25%);
 }
+
+.button-container {
+  display: flex;
+  width: fit-content;
+}
+
+.trending-button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  flex: 1; /* Faz com que ambos os botões tenham o mesmo tamanho */
+  transition: background-color 0.3s;
+  border-radius: 1rem;
+}
+
+.trending-button.selected {
+  background-color: #4caf50; /* Cor do botão selecionado */
+  color: white;
+}
+
+.trending-button:not(.selected) {
+  background-color: #f44336; /* Cor do botão não selecionado */
+  color: white;
+}
