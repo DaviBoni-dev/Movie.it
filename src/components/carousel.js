@@ -1,5 +1,3 @@
-import { getPopularMovies } from "../api/getMovies";
-
 export async function createMoviesCarousel(func, type) {
   const moviesArray = await func();
   //   console.log(moviesArray);

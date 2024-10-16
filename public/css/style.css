@@ -100,7 +100,8 @@ li {
   border-radius: 1rem;
 }
 
-button {
+.prev,
+.next {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
