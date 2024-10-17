@@ -73,7 +73,9 @@ const weekButton = document.getElementById("trending-week-button");
 
 dayButton.addEventListener("click", () => {
   putTrendingCarousel("day");
+  carouselTrendingEl.scrollLeft -= 1000000;
 });
 weekButton.addEventListener("click", () => {
   putTrendingCarousel("week");
+  carouselTrendingEl.scrollLeft -= 1000000;
 });
