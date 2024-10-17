@@ -72,10 +72,15 @@ const dayButton = document.getElementById("trending-day-button");
 const weekButton = document.getElementById("trending-week-button");
 
 dayButton.addEventListener("click", () => {
+  dayButton.classList.add("selected");
+  weekButton.classList.remove("selected");
+
   putTrendingCarousel("day");
   carouselTrendingEl.scrollLeft -= 1000000;
 });
 weekButton.addEventListener("click", () => {
+  dayButton.classList.remove("selected");
+  weekButton.classList.add("selected");
   putTrendingCarousel("week");
   carouselTrendingEl.scrollLeft -= 1000000;
 });

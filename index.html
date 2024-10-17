@@ -52,8 +52,16 @@
     </section>
 
     <section class="trending-movies">
-      <div class="trending-title">
+      <div class="trending-title container-two-el">
         <h2>Trending Movies</h2>
+        <div class="button-container">
+          <button id="trending-day-button" class="trending-button selected">
+            Day
+          </button>
+          <button id="trending-week-button" class="trending-button">
+            Week
+          </button>
+        </div>
       </div>
       <div class="carousel-container">
         <button class="prev" id="prev-trending">&#10094;</button>
@@ -61,14 +69,6 @@
         <button class="next" id="next-trending">&#10095;</button>
       </div>
     </section>
-
-    <div class="button-container">
-      <button id="trending-day-button" class="trending-button selected">
-        Day
-      </button>
-      <button id="trending-week-button" class="trending-button">Week</button>
-    </div>
-
     <script src="./public/js/main.js" type="module"></script>
   </body>
 </html>
