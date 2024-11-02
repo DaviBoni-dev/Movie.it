@@ -1,0 +1,13 @@
+.header-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .back-button {
+    position: absolute;
+    left: 0;
+  }
+
+

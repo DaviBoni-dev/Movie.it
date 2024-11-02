@@ -43,8 +43,8 @@ function adjustArray(moviesArray) {
 
 //getTrendingMovies("day");
 
-//const teste = await getTrendingMovies("day");
-//console.log(teste);
+const teste = await getTrendingMovies("day");
+console.log(teste);
 //adjustArray(teste);
 
 //const teste2 = array(teste[0]);
