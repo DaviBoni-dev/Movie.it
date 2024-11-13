@@ -55,9 +55,53 @@ header {
   align-items: center;
 }
 
+.search-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  max-width: 40rem;
+  border-radius: 2rem;
+  overflow: hidden;
+}
+
+.search-bar input[type="search"] {
+  flex: 1;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.6rem;
+  margin-left: 3rem;
+  border-radius: 2rem;
+  border: none;
+  outline: none;
+  font-family: "Lexend Deca", sans-serif;
+}
+
+.search-bar button {
+  background-color: #1c1c1c; /* cor do botão */
+  color: white;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  cursor: pointer;
+  font-size: 1.8rem;
+}
+
+.header-right button{
+  border: none;
+  box-shadow: none;
+}
+ .header-right i{
+  font-size: 2.4rem;
+  cursor: pointer;
+  color: white;
+  background-color: #1c1c1c;
+  border: none;
+  text-decoration: none;
+ }
+
 ul {
   list-style-type: none;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 li {
