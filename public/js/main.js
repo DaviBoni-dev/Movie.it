@@ -4,6 +4,13 @@ import {
   getTrendingMovies,
 } from "../../src/api/getMovies.js";
 
+document.addEventListener("DOMContentLoaded", () => {
+  putPopularCarousel();
+  putTrendingCarousel();
+  document.getElementById('loading-screen').style.display = 'none';
+
+});
+
 const carouselPopularEl = document.getElementById("carousel-popular");
 
 async function putPopularCarousel() {
@@ -25,8 +32,7 @@ async function putTrendingCarousel(time_window = "day") {
   carouselTrendingEl.innerHTML = moviesTrendingContainer;
 }
 
-putPopularCarousel();
-putTrendingCarousel();
+
 
 const prevPopularButton = document.getElementById("prev-popular");
 const nextPopularButton = document.getElementById("next-popular");
@@ -78,6 +84,7 @@ dayButton.addEventListener("click", () => {
   putTrendingCarousel("day");
   carouselTrendingEl.scrollLeft -= 1000000;
 });
+
 weekButton.addEventListener("click", () => {
   dayButton.classList.remove("selected");
   weekButton.classList.add("selected");

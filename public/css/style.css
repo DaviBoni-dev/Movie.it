@@ -64,6 +64,21 @@ li {
   margin-right: 1rem;
 }
 
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  z-index: 9999;
+}
+
+
 .trending-movies {
   margin-bottom: 3.12rem;
 }
