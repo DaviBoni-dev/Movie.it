@@ -32,7 +32,7 @@ export async function getTrendingMovies(timeWindow) {
 
 export async function searchMovie(movieName) {
   try {
-    let url = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en&region=BR&query=${movieName}&page=1&include_adult=false`;
+    let url = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&region=BR&query=${movieName}&page=1&include_adult=false`;
     const response = await fetch(url);
     const data = await response.json();
     let result = data.results;

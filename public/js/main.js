@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   await putPopularCarousel();
   await putTrendingCarousel();
   document.getElementById('loading-screen').style.display = 'none';
-
 });
 
 

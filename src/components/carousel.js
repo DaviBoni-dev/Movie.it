@@ -7,8 +7,8 @@ export async function createMoviesCarousel(func, type, trendingtype = null) {
       carouselHTML = `<h2> Nehum filme encontrado </h2>`;
       return carouselHTML;
       }
-  for (let i = 0; i < 20; i++) {
-    if(moviesArray[i].poster_path == null){
+  for (let i = 0; i < moviesArray.length; i++) {
+    if(moviesArray[i].poster_path == null || moviesArray[i].poster_path == undefined){
      continue;
     }
     carouselHTML += /*html*/ `<div class ="movie-frame" id="movie-frame-${type}">
