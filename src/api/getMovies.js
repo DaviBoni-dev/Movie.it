@@ -30,6 +30,20 @@ export async function getTrendingMovies(timeWindow) {
   }
 }
 
+export async function searchMovie(movieName) {
+  try {
+    let url = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en&region=BR&query=${movieName}&page=1&include_adult=false`;
+    const response = await fetch(url);
+    const data = await response.json();
+    let result = data.results;
+    result = adjustArray(result);
+   // console.log("data: ", data);
+    return result;
+  } catch (error) {
+    throw error;
+  }
+}
+
 function adjustArray(moviesArray) {
   for (let i = 0; i < moviesArray.length; i++) {
     if (Number(moviesArray[i].vote_average) == 0) {
@@ -49,3 +63,5 @@ function adjustArray(moviesArray) {
 
 //const teste2 = array(teste[0]);
 //console.log(teste2);
+
+

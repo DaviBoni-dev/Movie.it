@@ -2,14 +2,16 @@ import { createMoviesCarousel } from "../../src/components/carousel.js";
 import {
   getPopularMovies,
   getTrendingMovies,
+  searchMovie,
 } from "../../src/api/getMovies.js";
 
-document.addEventListener("DOMContentLoaded", () => {
-  putPopularCarousel();
-  putTrendingCarousel();
+document.addEventListener("DOMContentLoaded", async () => {
+  await putPopularCarousel();
+  await putTrendingCarousel();
   document.getElementById('loading-screen').style.display = 'none';
 
 });
+
 
 const carouselPopularEl = document.getElementById("carousel-popular");
 
@@ -91,3 +93,4 @@ weekButton.addEventListener("click", () => {
   putTrendingCarousel("week");
   carouselTrendingEl.scrollLeft -= 1000000;
 });
+

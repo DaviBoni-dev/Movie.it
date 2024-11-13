@@ -179,7 +179,7 @@ li {
 }
 
 .popular-title,
-.trending-title {
+.trending-title, .results-page-title {
   padding: 1.6rem 3.12rem;
 }
 
@@ -235,4 +235,15 @@ li {
 .trending-button:not(.selected) {
   background-color: inherit; /* Cor do botão não selecionado */
   color: white;
+}
+
+/* Página de resultados*/
+
+.movies-results-container{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
 }
