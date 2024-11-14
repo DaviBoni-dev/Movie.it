@@ -12,7 +12,7 @@ function updateURLWithQuery(query) {
 window.onload = async function() {
   const query = getQueryParameter('query');  // Recupera o valor da URL
   if (query) {
-    await putSearchResults(query);
+   await putSearchResults(query);
   }
 }
 
@@ -28,11 +28,11 @@ document.getElementById("search-movie-form").addEventListener("submit", async (e
     
     // Faz a pesquisa e exibe os resultados
     await putSearchResults(movieName);
-});
+  });
 
-async function putSearchResults(movieName) {
-  let searchResults = await createMoviesCarousel(searchMovie, "search", movieName);
-  gridResults.innerHTML = searchResults;
-  titleResults.innerHTML = `Resultados para: ${movieName} `;
-  document.getElementById('loading-screen').style.display = 'none';
+  async function putSearchResults(movieName) {
+    let searchResults = await createMoviesCarousel(searchMovie, "search", movieName);
+     gridResults.innerHTML = searchResults;
+     titleResults.innerHTML = `Resultados para: ${movieName} `;
+     document.getElementById('loading-screen').style.display = 'none';
 }
