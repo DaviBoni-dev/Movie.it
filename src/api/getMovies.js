@@ -44,6 +44,7 @@ export async function searchMovie(movieName) {
   }
 }
 
+
 function adjustArray(moviesArray) {
   for (let i = 0; i < moviesArray.length; i++) {
     if (Number(moviesArray[i].vote_average) == 0) {
@@ -55,13 +56,48 @@ function adjustArray(moviesArray) {
   return moviesArray;
 }
 
-//getTrendingMovies("day");
+async function getGenresId(){
+  try {
+    let url = `https://api.themoviedb.org/3/genre/movie/list?api_key=${key}&language=en-US`;
+    const response = await fetch(url);
+    const data = await response.json();
+    const results = data.genres;
+    console.log("Get genres ok");
+    return results;
+  } catch (error) {
+    throw error;
+  }
+}
 
-//const teste = await getTrendingMovies("day");
-//console.log(teste);
-//adjustArray(teste);
+async function findIdByGenres(genre){
+  const genres = await getGenresId();
+  const genreObject = genres.find(genreArray => genreArray.name === genre);
+  if (genreObject) {
+    console.log("id: ", genreObject.id);
+    return genreObject.id;
+  } else {
+    console.log("Genre not found");
+    return null;
+  }
+}
 
-//const teste2 = array(teste[0]);
-//console.log(teste2);
+getMovieByGender('War');
+ //getGenresId("War");
+//findIdByGenres("Action");
 
+export async function getMovieByGender(genre) {
+  try{
+  const genreId = await findIdByGenres(genre);
+  console.log("genreId: ", genreId);
+  let url = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&with_genres=${genreId}`;
+  const response = await fetch(url);
+  const data = await response.json();
+  let result = data.results;
+  //result = adjustArray(result);
+  console.log("data: ", result);
+  return result;
+  } catch (error) {
+    throw error;
+  }
+}
 
