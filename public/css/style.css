@@ -247,3 +247,22 @@ li {
   gap: 2rem;
   margin-bottom: 1rem;
 }
+
+/* Página de genero */
+
+.genres-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.genre-box{
+  display: flex;
+  background-color: #1c1c1c;
+  padding: 1.85rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
