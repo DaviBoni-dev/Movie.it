@@ -1,4 +1,10 @@
-const response = await fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=14492379fbe9f375379b98f0de2580ac&language=pt-BR"
-)
-const data = await response.json();
-console.log(data);
+import { getGenresId } from '../../src/api/getMovies.js';
+import { createGridGenres } from '../../src/components/genresGrid.js';
+
+const genresGrid = document.getElementById('genres-grid');
+
+document.addEventListener("DOMContentLoaded", async () => {
+  let genresHTML = await createGridGenres();
+    genresGrid.innerHTML = genresHTML;
+  //document.getElementById('loading-screen').style.display = 'none';
+});

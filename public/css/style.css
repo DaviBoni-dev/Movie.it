@@ -255,16 +255,21 @@ li {
   flex-wrap: wrap;
   justify-content: center;
   gap: 2rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .genre-box{
   display: flex;
   background-color: #1c1c1c;
-  padding: 1.85rem;
+  padding: 8rem 12rem;
   border-radius: 1rem;
   cursor: pointer;
   transition: background-color 0.3s;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 /* ********** */
@@ -285,4 +290,9 @@ li {
   text-align: center;
   border-radius: 1rem;
   border: solid 2px black;
+}
+
+.genres-text{
+  text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
+  color: white;
 }
