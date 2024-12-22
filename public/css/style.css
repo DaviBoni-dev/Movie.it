@@ -266,3 +266,23 @@ li {
   cursor: pointer;
   transition: background-color 0.3s;
 }
+
+/* ********** */
+
+.loadmore-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.loadmore-button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background-color: #1c1c1c;
+  color: rgb(255, 247, 0);
+  text-align: center;
+  border-radius: 1rem;
+  border: solid 2px black;
+}
