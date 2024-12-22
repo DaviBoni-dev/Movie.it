@@ -101,3 +101,17 @@ export async function getMovieByGender(genre) {
   }
 }
 
+export async function getTopRatedMovies(){
+  try{
+    let url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${key}`;
+    const response = await fetch(url);
+    const data = await response.json();
+    let result = data.results;
+    result = adjustArray(result);
+    //console.log("data: ", result);
+    return result;
+  }
+  catch(error){
+    throw error;
+  }
+}
