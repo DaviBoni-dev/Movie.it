@@ -52,7 +52,15 @@ const prevPopularButton = document.getElementById("prev-popular");
 const nextPopularButton = document.getElementById("next-popular");
 
 // Define a quantidade de pixels que o carrossel deve rolar a cada clique
-const scrollAmount = 591;
+let windowSize = window.innerWidth;
+let scrollAmount;
+if(windowSize < 768) {
+  scrollAmount = 393;
+}
+else{
+  scrollAmount = 591;
+}
+
 
 // Rola para a esquerda quando a seta "prev" é clicada
 prevPopularButton.addEventListener("click", () => {
