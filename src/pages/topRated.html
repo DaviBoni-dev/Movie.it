@@ -15,7 +15,7 @@
 </head>
 <header>
   <section class="container">
-    <div class="header-left">
+    <div class="header-left" id="header-left">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="16"
@@ -30,8 +30,8 @@
       </svg>
       <h1>Movie.it</h1>
     </div>
-    <div class="header-right">
-      <form class="search-bar" id="search-movie-form" action="./src/pages/results.html" method="get">
+    <div class="header-right" id="header-right">
+      <form class="search-bar" id="search-movie-form" action="./results.html" method="get">
         <input type="search" placeholder="Search..." id="search-movie-input" name="query">
         <button type="submit">
           <i class="bi bi-search"></i>
@@ -45,11 +45,11 @@
       </button>
 
       <!-- Lista de tópicos -->
-      <div class="header-list">
+      <div class="header-list" id="header-list">
         <ul class="header-list-topics" id="menu">
           <li><a href="../../index.html">Home</a></li>
-          <li><a href="./src/pages/genres.html">Genres</a></li>
-          <li><a href="./src/pages/topRated.html">Top Rated</a></li>
+          <li><a href="./genres.html">Genres</a></li>
+          <li><a href="./topRated.html">Top Rated</a></li>
         </ul>
       </div>
   </section>

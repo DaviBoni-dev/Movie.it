@@ -321,11 +321,6 @@ header {
     float: left;
   }
 
-  .header-right{
-align-items: center;
-    width: 100%;
-    justify-content: space-between;
-  }
   .header-list{
     width: 0%;
     display: none; /* Esconda os tópicos por padrão */
@@ -336,20 +331,20 @@ align-items: center;
     color: white; /* Mostre o botão de menu no celular */
   }
 
-  .header-right.open .header-list-topics {
-    display: flex; /* Exiba os tópicos ao clicar no botão */
+  .open {
+    width: 100%; /* Mostre os tópicos quando o menu estiver aberto */
+    display: flex;
+    justify-content: center;
     flex-direction: column;
-    position: absolute;
-    top: 50px;
-    right: 10px;
-    background: white;
-    color: #000;
-    border: 1px solid #ddd;
-    padding: 10px;
-    z-index: 1000;
   }
 
-  .header-right.open .header-list-topics li {
+  .open ul{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .header-right.open .header-list-topics ul li {
     margin: 5px 0;
   }
 }
