@@ -81,15 +81,15 @@ async function findIdByGenres(genre){
   }
 }
 
-export async function getMoviesByGender(genre) {
+export async function getMoviesByGender(genre, page = 1){
   try{
   const genreId = await findIdByGenres(genre);
   //console.log("genreId: ", genreId);
-  let url = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&with_genres=${genreId}`;
+  let url = `https://api.themoviedb.org/3/discover/movie?api_key=${key}&with_genres=${genreId}&page=${page}`;
   const response = await fetch(url);
   const data = await response.json();
   let result = data.results;
-  //result = adjustArray(result);
+  result = adjustArray(result);
   //console.log("data: ", result);
   return result;
   } catch (error) {
