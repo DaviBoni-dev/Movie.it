@@ -8,7 +8,20 @@ import {
 document.addEventListener("DOMContentLoaded", async () => {
   await putPopularCarousel();
   await putTrendingCarousel();
+  //document.getElementById('loading-screen').style.display = 'none';
+});
+
+window.onload = async () => {
   document.getElementById('loading-screen').style.display = 'none';
+}
+
+// Seleciona o botão e o menu
+const menuToggle = document.getElementById('menu-toggle');
+const headerRight = document.querySelector('.header-right');
+
+// Alterna a classe 'open' ao clicar no botão
+menuToggle.addEventListener('click', () => {
+  headerRight.classList.toggle('open');
 });
 
 

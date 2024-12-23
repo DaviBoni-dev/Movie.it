@@ -8,9 +8,9 @@ export async function createMoviesCarousel(func, type, trendingtype = null) {
       return carouselHTML;
       }
   for (let i = 0; i < moviesArray.length; i++) {
-    //if(moviesArray[i].poster_path == null || moviesArray[i].poster_path == undefined){
-    // continue;
-    //}
+    if(moviesArray[i].poster_path == null || moviesArray[i].poster_path == undefined){
+     continue;
+    }
     carouselHTML += /*html*/ `<div class ="movie-frame" id="movie-frame-${type}">
     <p class="rating-box-filme">${ajustarNota(moviesArray[i])}</p>
     <img

@@ -32,23 +32,28 @@
           <h1>Movie.it</h1>
         </div>
         <div class="header-right">
-          <ul>
-            <li>
-              <form class="search-bar" id="search-movie-form" action="./src/pages/results.html" method="get">
-                <input type="search" placeholder="Search..." id="search-movie-input" name="query">
-                <button type="submit">
-                  <i class="bi bi-search"></i> <!-- Ícone de lupa ou insira uma imagem -->
-                </button>
-              </form>
-            
-          </li>
+          <form class="search-bar" id="search-movie-form" action="./src/pages/results.html" method="get">
+            <input type="search" placeholder="Search..." id="search-movie-input" name="query">
+            <button type="submit">
+              <i class="bi bi-search"></i>
+            </button>
+          </form>
+        </div>
+    
+          <!-- Botão para abrir o menu no celular -->
+          <button class="menu-toggle" id="menu-toggle">
+            ☰
+          </button>
+    
+          <!-- Lista de tópicos -->
+          <ul class="header-list-topics" id="menu">
             <li><a href="./index.html">Home</a></li>
             <li><a href="./src/pages/genres.html">Genres</a></li>
             <li><a href="./src/pages/topRated.html">Top Rated</a></li>
           </ul>
-        </div>
       </section>
     </header>
+    
 
     <div id="loading-screen">
       <p>Carregando...</p>

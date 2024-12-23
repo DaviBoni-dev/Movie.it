@@ -8,3 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     genresGrid.innerHTML = genresHTML;
   //document.getElementById('loading-screen').style.display = 'none';
 });
+
+window.onload = async () => {
+  document.getElementById('loading-screen').style.display = 'none';
+};

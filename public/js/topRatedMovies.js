@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     loadingPage.style.display = "none";
 });
 
+window.onload = async () => {
+    document.getElementById("loading-screen").style.display = "none";
+};
+
 async function updatePage() {
     page++;
     const movieContaiener = document.getElementById("top-rated-container");

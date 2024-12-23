@@ -31,10 +31,13 @@ a {
   text-decoration: none;
   color: inherit;
 }
-.container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
+
+.menu-toggle{
+  display: none;  
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
 }
 
 header {
@@ -44,15 +47,29 @@ header {
   padding: 1.6rem 3.12rem;
 }
 
-.header-left {
+.container{
   display: flex;
-  gap: 10px;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.header-right{
+  display: flex;
+  gap: 1rem;
   align-items: center;
 }
 
-.header-right {
+.header-left{
   display: flex;
+  gap: 1rem;
   align-items: center;
+}
+
+.header-list-topics{
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  list-style: none;
 }
 
 .search-bar {
@@ -73,39 +90,16 @@ header {
   border: none;
   outline: none;
   font-family: "Lexend Deca", sans-serif;
+  max-width: 100%;
 }
 
 .search-bar button {
-  background-color: #1c1c1c; /* cor do botão */
+  background-color: #1c1c1c;
   color: white;
   border: none;
   padding: 0.8rem 1.6rem;
   cursor: pointer;
   font-size: 1.8rem;
-}
-
-.header-right button{
-  border: none;
-  box-shadow: none;
-}
- .header-right i{
-  font-size: 2.4rem;
-  cursor: pointer;
-  color: white;
-  background-color: #1c1c1c;
-  border: none;
-  text-decoration: none;
- }
-
-ul {
-  list-style-type: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-li {
-  margin-right: 1rem;
 }
 
 #loading-screen {
@@ -296,3 +290,89 @@ li {
   text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
   color: white;
 }
+
+@media screen and (max-width: 768px) {
+
+  body{
+    font-size: 1.33rem;
+  }
+
+  header{
+    padding: 1.28rem 2.5rem;
+    width: 100%;
+  }
+
+  .header-left{
+    max-width: 30%;
+    float: left;
+  }
+
+  .header-right{
+    max-width:60%
+  }
+
+  .search-bar input[type="search"]{
+    max-width: 60%;
+  }
+
+  .header-list-topics {
+    width: 0%;
+    display: none; /* Esconda os tópicos por padrão */
+  }
+
+  .menu-toggle {
+    display: inline-block;
+    width: 10%;
+    color: white; /* Mostre o botão de menu no celular */
+  }
+
+  .header-right.open .header-list-topics {
+    display: flex; /* Exiba os tópicos ao clicar no botão */
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    right: 10px;
+    background: white;
+    color: #000;
+    border: 1px solid #ddd;
+    padding: 10px;
+    z-index: 1000;
+  }
+
+  .header-right.open .header-list-topics li {
+    margin: 5px 0;
+  }
+}
+
+
+/* 
+@media screen and (max-width:576px){
+  body{
+    overflow-x: hidden;
+  }
+  
+  .header-list-topics{
+        display: none;
+    }
+
+    .header-right{
+      width: 60%;
+    }
+
+    .search-bar{
+      max-width: 100%;
+    }
+
+    #search-movie-input{
+      max-width: 40%;
+    }
+
+    .genre-box{
+      width: 100%;
+      border-radius: 0;
+      justify-content: center;
+    }
+
+    /*.header-left{
+      float: left;
+    }*/

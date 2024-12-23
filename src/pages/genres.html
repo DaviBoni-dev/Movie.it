@@ -14,43 +14,51 @@
     <title>Movie.it</title>
 </head>
 <header>
-    <section class="container">
-      <div class="header-left">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="16"
-          height="16"
-          fill="currentColor"
-          class="bi bi-film"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z"
-          />
-        </svg>
-        <h1>Movie.it</h1>
-      </div>
-      <div class="header-right">
-        <ul>
-          <li>
-            <form class="search-bar" id="search-movie-form">
-              <input type="search" placeholder="Search..." id="search-movie-input" name="query">
+  <section class="container">
+    <div class="header-left">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-film"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z"
+        />
+      </svg>
+      <h1>Movie.it</h1>
+    </div>
+    <div class="header-right">
+      <form class="search-bar" id="search-movie-form" action="./src/pages/results.html" method="get">
+        <input type="search" placeholder="Search..." id="search-movie-input" name="query">
+        <button type="submit">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+    </div>
 
-              <button type="submit">
-                <i class="bi bi-search"></i> <!-- Ícone de lupa ou insira uma imagem -->
-              </button>
-            </form>
-          
-        </li>
-          <li><a href="../../index.html">Home</a></li>
-          <li><a href="">Genres</a></li>
-          <li><a href="./topRated.html">Top Rated</a></li>
-        </ul>
-      </div>
-    </section>
-  </header>
+      <!-- Botão para abrir o menu no celular -->
+      <button class="menu-toggle" id="menu-toggle">
+        ☰
+      </button>
+
+      <!-- Lista de tópicos -->
+      <ul class="header-list-topics" id="menu">
+        <li><a href="./index.html">Home</a></li>
+        <li><a href="./src/pages/genres.html">Genres</a></li>
+        <li><a href="./src/pages/topRated.html">Top Rated</a></li>
+      </ul>
+  </section>
+</header>
 
 <body>
+
+  <div id="loading-screen">
+    <p>Carregando...</p>
+</div>
+
     <section class="genres-container" id="genres-grid">
         <!-- <div class="genre-box" style="background-image: url(https://image.tmdb.org/t/p/original/cjEcqdRdPQJhYre3HUAc5538Gk8.jpg);">
             <h2>Action</h2>
