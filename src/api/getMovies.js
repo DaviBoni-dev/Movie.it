@@ -58,9 +58,7 @@ function adjustArray(moviesArray) {
   if(moviesArray[0].known_for != undefined){
     console.log("moviesArray tem um ator");
     //moviesArray = moviesArray[0].known_for;
-    for(let i = 0; i < moviesArray[0].known_for.length; i++){
-      moviesArray.push(moviesArray[0].known_for[i]);
-    }
+    moviesArray = moviesArray[0].known_for.concat(moviesArray);
   }
 
   return moviesArray;
