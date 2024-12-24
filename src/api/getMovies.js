@@ -32,12 +32,14 @@ export async function getTrendingMovies(timeWindow) {
 
 export async function searchMovie(movieName) {
   try {
-    let url = `https://api.themoviedb.org/3/search/movie?api_key=${key}&language=en-US&region=BR&query=${movieName}&page=1&include_adult=false`;
+    const safeMovieName = encodeURIComponent(movieName);
+    console.log("safeMovieName: ", safeMovieName);
+    let url = `https://api.themoviedb.org/3/search/multi?api_key=${key}&language=en-US&query=${safeMovieName}&page=1&include_adult=false`;
     const response = await fetch(url);
     const data = await response.json();
     let result = data.results;
     result = adjustArray(result);
-   // console.log("data: ", data);
+   console.log("data: ", data);
     return result;
   } catch (error) {
     throw error;
@@ -50,6 +52,14 @@ function adjustArray(moviesArray) {
     if (Number(moviesArray[i].vote_average) == 0) {
       moviesArray[i].vote_average = "NA";
       // console.log("igual");
+    }
+  }
+
+  if(moviesArray[0].known_for != undefined){
+    console.log("moviesArray tem um ator");
+    //moviesArray = moviesArray[0].known_for;
+    for(let i = 0; i < moviesArray[0].known_for.length; i++){
+      moviesArray.push(moviesArray[0].known_for[i]);
     }
   }
 

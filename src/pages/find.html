@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../public/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Movie.it</title>
+</head>
+<header>
+  <section class="container">
+    <div class="header-left" id="header-left">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="16"
+        height="16"
+        fill="currentColor"
+        class="bi bi-film"
+        viewBox="0 0 16 16"
+      >
+        <path
+          d="M0 1a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm4 0v6h8V1zm8 8H4v6h8zM1 1v2h2V1zm2 3H1v2h2zM1 7v2h2V7zm2 3H1v2h2zm-2 3v2h2v-2zM15 1h-2v2h2zm-2 3v2h2V4zm2 3h-2v2h2zm-2 3v2h2v-2zm2 3h-2v2h2z"
+        />
+      </svg>
+      <h1>Movie.it</h1>
+    </div>
+    <div class="header-right" id="header-right">
+      <form class="search-bar" id="search-movie-form" action="./results.html" method="get">
+        <input type="search" placeholder="Search..." id="search-movie-input" name="query">
+        <button type="submit">
+          <i class="bi bi-search"></i>
+        </button>
+      </form>
+    </div>
+
+      <!-- Botão para abrir o menu no celular -->
+      <button class="menu-toggle" id="menu-toggle">
+        ☰
+      </button>
+
+      <!-- Lista de tópicos -->
+      <div class="header-list" id="header-list">
+        <ul class="header-list-topics" id="menu">
+          <li><a href="../../index.html">Home</a></li>
+          <li><a href="./find.html">Find</a></li>
+          <li><a href="./genres.html">Genres</a></li>
+          <li><a href="./topRated.html">Top Rated</a></li>
+        </ul>
+      </div>
+  </section>
+</header>
+
+<body>
+
+  <div id="loading-screen">
+    <p>Carregando...</p>
+</div>
+
+    <section class="find-container">
+        <form action="" method="get">
+            <fieldset>
+                <label for="genero">Escolha um gênero:</label>
+                <select id="genero" name="genero">
+                    <option value="action">Action</option>
+                  <option value="adventure">Adventure</option>
+                  <option value="animation">Animation</option>
+                  <option value="comedy">Comedy</option>
+                  <option value="crime">Crime</option>
+                  <option value="documentary">Documentary</option>
+                  <option value="drama">Drama</option>
+                  <option value="family">Family</option>
+                  <option value="fantasy">Fantasy</option>
+                  <option value="history">History</option>
+                  <option value="horror">Horror</option>
+                <option value="music">Music</option>
+                <option value="mistery">Mistery</option>
+                <option value="romance">Romance</option>
+                <option value="science-fiction">Science Fiction</option>
+                <option value="tv-movie">TV Movie</option>
+                <option value="thriller">Thriller</option>
+                <option value="war">War</option>
+                <option value="western">Western</option>
+                </select>
+            </fieldset>
+
+            <fieldset>
+                <label for="order">Order by:</label>
+                <select name="order" id="order">
+                    <option value="popularity">Popularity</option>
+                    <option value="avaliation">Vote average</option>
+                    <option value="revenue">Revenue</option>
+                </select>
+
+               <label>
+                <input type="radio" name="order" value="desc" checked> Descending
+                </label>
+                <label>
+                <input type="radio" name="order" value="asc"> Ascending
+                </label>
+               </label>
+            </fieldset>
+
+            <fieldset>     
+                <p>Watch Providers:</p>        
+                    <input type="checkbox" id="disney" name="disney" value="Disney">
+                    <label for="disney">Disney +</label><br>
+                    <input type="checkbox" id="netflix" name="netflix" value="Netflix">
+                    <label for="netflix">Netflix</label><br>
+                    <input type="checkbox" id="amazon-prime-video" name="amazon-prime-video" value="Amazon-prime-video">
+                    <label for="amazon-prime-video">Amazon Prime Video</label>
+                    <input type="checkbox" id="hbo-max" name="hbo-max" value="HBO Max">
+                    <label for="hbo-max">Max</label>
+                    <input type="checkbox" id="hulu" name="hulu" value="Hulu">
+                    <label for="hulu">Hulu</label>
+                    <input type="checkbox" id="apple-tv-plus" name="apple-tv-plus" value="Apple TV Plus">
+                    <label for="apple-tv-plus">Apple TV</label>
+                    <input type="checkbox" id="peacock" name="peacock" value="Peacock">
+                    <label for="peacock">Peacock</label>
+                    <input type="checkbox" id="paramount-plus" name="paramount-plus" value="Paramount Plus">
+                    <label for="paramount-plus">Paramount Plus</label>
+                    <input type="checkbox" id="globoplay" name="globoplay" value="Globoplay">
+                    <label for="globoplay">Globoplay</label>
+            </fieldset>
+
+          
+
+        </form>
+    </section>
+
+    <section class="genres-container" id="genres-grid">
+      
+    </section>
+    <script type="module" src="../components/menu.js"></script>
+    <script type="module" src="../../public/js/find.js">
+    </script>
+</body>
+</html>
