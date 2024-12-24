@@ -263,6 +263,8 @@ header {
 
 .genre-box{
   display: flex;
+  text-align: center;
+  justify-content: center;
   background-color: #1c1c1c;
   padding: 8rem 12rem;
   border-radius: 1rem;
@@ -272,7 +274,8 @@ header {
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  cursor: pointer;;
+  cursor: pointer;
+  max-width: 20%;
 }
 
 .genre-box:hover{
@@ -358,5 +361,6 @@ header {
     width: 100%;
     text-align: center;
     border-radius: 0;
+    max-width:none;
   }
 }
