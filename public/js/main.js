@@ -2,11 +2,13 @@ import { createMoviesCarousel } from "../../src/components/carousel.js";
 import {
   getPopularMovies,
   getTrendingMovies,
+  getUpcomingMovies
 } from "../../src/api/getMovies.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   await putPopularCarousel();
   await putTrendingCarousel();
+  await putUpcomingCarousel();
   //document.getElementById('loading-screen').style.display = 'none';
 });
 
@@ -34,6 +36,17 @@ async function putTrendingCarousel(time_window = "day") {
     time_window
   );
   carouselTrendingEl.innerHTML = moviesTrendingContainer;
+}
+
+const carouselUpcomingEl = document.getElementById("carousel-upcoming");
+
+async function putUpcomingCarousel() {
+  const moviesUpcomingContainer = await createMoviesCarousel(
+    getUpcomingMovies,
+    "upcoming",
+    1
+  );
+  carouselUpcomingEl.innerHTML = moviesUpcomingContainer;
 }
 
 
@@ -81,6 +94,22 @@ prevTrendingButton.addEventListener("click", () => {
 // Rola para a direita quando a seta "next" é clicada
 nextTrendingButton.addEventListener("click", () => {
   carouselTrendingEl.scrollBy({
+    left: scrollAmount,
+    behavior: "smooth",
+  });
+});
+
+const prevUpcomingButton = document.getElementById("prev-upcoming");
+const nextUpcomingButton = document.getElementById("next-upcoming");
+prevUpcomingButton.addEventListener("click", () => {
+  carouselUpcomingEl.scrollBy({
+    left: -scrollAmount,
+    behavior: "smooth",
+  });
+});
+
+nextUpcomingButton.addEventListener("click", () => {
+  carouselUpcomingEl.scrollBy({
     left: scrollAmount,
     behavior: "smooth",
   });

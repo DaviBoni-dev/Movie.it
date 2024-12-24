@@ -111,3 +111,18 @@ export async function getTopRatedMovies(page){
     throw error;
   }
 }
+
+export async function getUpcomingMovies(page = 1){
+  try{
+    let url = `https://api.themoviedb.org/3/movie/upcoming?api_key=${key}&page=${page}&region=BR&language=pt-BR`;
+    const response = await fetch(url);
+    const data = await response.json();
+    let result = data.results;
+    result = adjustArray(result);
+    //console.log("data: ", result);
+    return result;
+  }
+  catch(error){
+    throw error;
+  }
+}

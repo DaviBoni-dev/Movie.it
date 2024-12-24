@@ -27,11 +27,11 @@ if(isClose){
 window.addEventListener('beforeunload', function() {
     // Show loading screen when navigating to a new page
     document.getElementById('loading-screen').style.display = 'flex';
-    document.getElementById('main-content').style.display = 'none';
+    //document.getElementById('main-content').style.display = 'none';
 });
 
 window.addEventListener('load', function() {
     // Hide loading screen and show content once everything is loaded
     document.getElementById('loading-screen').style.display = 'none';
-    document.getElementById('main-content').style.display = 'block';
+    //document.getElementById('main-content').style.display = 'block';
 });
