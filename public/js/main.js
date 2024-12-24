@@ -2,7 +2,6 @@ import { createMoviesCarousel } from "../../src/components/carousel.js";
 import {
   getPopularMovies,
   getTrendingMovies,
-  searchMovie,
 } from "../../src/api/getMovies.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
