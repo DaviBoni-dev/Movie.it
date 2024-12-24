@@ -352,4 +352,11 @@ header {
   .header-right.open .header-list-topics ul li {
     margin: 5px 0;
   }
+
+  .genre-box{
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border-radius: 0;
+  }
 }

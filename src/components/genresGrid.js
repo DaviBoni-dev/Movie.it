@@ -1,5 +1,7 @@
 import { getGenresId, getMoviesByGender } from "../api/getMovies.js";
 
+let Moviesid = [];
+
 export async function createGridGenres() {
     const genreArray = await getGenresId();
     let gridHTML = "";
@@ -9,6 +11,11 @@ export async function createGridGenres() {
         for(let j = 0; j < movieGenreArray.length; j++){
             if(!(movieGenreArray[j].backdrop_path == null || movieGenreArray[j].backdrop_path == undefined)){
                 oneMovie = movieGenreArray[j];
+                if(compareIds(Moviesid, oneMovie.id)){
+                    continue;
+                }
+                Moviesid.push(oneMovie.id);
+
                 break;
             }
         }
@@ -18,4 +25,12 @@ export async function createGridGenres() {
     }
 
     return gridHTML;
+}
+
+function compareIds(a, b){
+    for(let i = 0; i < a.length; i++){
+        if(a[i] == b){
+            return true;
+        }
+    }
 }
