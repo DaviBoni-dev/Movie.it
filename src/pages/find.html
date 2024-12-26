@@ -67,7 +67,8 @@
             <fieldset>
                 <label for="genero">Escolha um gênero:</label>
                 <select id="genero" name="genero">
-                    <option value="action">Action</option>
+                  <option value="null" disabled selected>Gênero</option>
+                  <option value="action">Action</option>
                   <option value="adventure">Adventure</option>
                   <option value="animation">Animation</option>
                   <option value="comedy">Comedy</option>
@@ -96,39 +97,42 @@
                     <option value="avaliation">Vote average</option>
                     <option value="revenue">Revenue</option>
                 </select>
+                </fieldset>
 
-               <label>
-                <input type="radio" name="order" value="desc" checked> Descending
-                </label>
-                <label>
-                <input type="radio" name="order" value="asc"> Ascending
-                </label>
-               </label>
-            </fieldset>
+                <fieldset>
+                    <legend>Sort Order</legend>
+                    <label>
+                        <input type="radio" name="order" value="desc" checked> Descending
+                    </label>
+                    <label>
+                        <input type="radio" name="order" value="asc"> Ascending
+                    </label>
+                </fieldset>
 
             <fieldset>     
                 <p>Watch Providers:</p>        
-                    <input type="checkbox" id="disney" name="disney" value="Disney">
+                    <input type="checkbox" id="disney" name="watch" value="Disney">
                     <label for="disney">Disney +</label><br>
-                    <input type="checkbox" id="netflix" name="netflix" value="Netflix">
+                    <input type="checkbox" id="netflix" name="watch" value="Netflix">
                     <label for="netflix">Netflix</label><br>
-                    <input type="checkbox" id="amazon-prime-video" name="amazon-prime-video" value="Amazon-prime-video">
+                    <input type="checkbox" id="amazon-prime-video" name="watch" value="Amazon-prime-video">
                     <label for="amazon-prime-video">Amazon Prime Video</label>
-                    <input type="checkbox" id="hbo-max" name="hbo-max" value="HBO Max">
+                    <input type="checkbox" id="hbo-max" name="watch" value="HBO Max">
                     <label for="hbo-max">Max</label>
-                    <input type="checkbox" id="hulu" name="hulu" value="Hulu">
+                    <input type="checkbox" id="hulu" name="watch" value="Hulu">
                     <label for="hulu">Hulu</label>
-                    <input type="checkbox" id="apple-tv-plus" name="apple-tv-plus" value="Apple TV Plus">
+                    <input type="checkbox" id="apple-tv-plus" name="watch" value="Apple TV Plus">
                     <label for="apple-tv-plus">Apple TV</label>
-                    <input type="checkbox" id="peacock" name="peacock" value="Peacock">
+                    <input type="checkbox" id="peacock" name="watch" value="Peacock">
                     <label for="peacock">Peacock</label>
-                    <input type="checkbox" id="paramount-plus" name="paramount-plus" value="Paramount Plus">
+                    <input type="checkbox" id="paramount-plus" name="watch" value="Paramount Plus">
                     <label for="paramount-plus">Paramount Plus</label>
-                    <input type="checkbox" id="globoplay" name="globoplay" value="Globoplay">
+                    <input type="checkbox" id="globoplay" name="watch" value="Globoplay">
                     <label for="globoplay">Globoplay</label>
             </fieldset>
 
-          
+            <button id="button-findmovie">Find movie</button>
+         
 
         </form>
     </section>
