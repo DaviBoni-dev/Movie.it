@@ -134,3 +134,35 @@ export async function getUpcomingMovies(page = 1){
     throw error;
   }
 }
+
+export async function getWatchProviderId(watchProvider){
+  try{
+    let url = `https://api.themoviedb.org/3/watch/providers/movie?api_key=${key}&watch_region=BR`;
+    const response = await fetch(url);
+    const data = await response.json();
+    let result = data.results;
+    //console.log("data: ", result);
+    result.sort((a, b) => a.display_priority - b.display_priority);
+   
+    result.forEach(provider => {
+      if(provider.provider_name === watchProvider){
+        console.log("id: ", provider.provider_id);
+        return provider.provider_id;
+      }
+    });
+    
+  }
+  catch(error){
+    throw error;
+  }
+}
+
+export async function getOneIdByGenre(genre){
+  let result = await getGenresId();
+  console.log(result);
+  for(const arrayGenre of result){
+    if(arrayGenre.name == genre){
+      return arrayGenre.id;
+    }
+  }
+}

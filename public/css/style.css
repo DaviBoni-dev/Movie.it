@@ -291,7 +291,7 @@ header {
   margin-bottom: 2rem;
 }
 
-.loadmore-button {
+.loadmore-button, #button-findmovie{
   padding: 10px 20px;
   border: none;
   cursor: pointer;
@@ -306,6 +306,37 @@ header {
   text-shadow: 2px 2px 0 #000, -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000;
   color: white;
 }
+
+.error{
+  color: red;
+  font-size: 1.11rem;
+}
+
+.find-container{
+  display: flex;
+  width: 15%;
+  padding: 1.6rem 3.12rem;
+}
+
+.find-container-form fieldset{
+  border:none;
+  margin-bottom: 2rem;
+}
+
+input[type="checkbox"] {
+  border-radius: 5px; /* Faz o checkbox ficar arredondado */
+  border: 2px solid #333; /* Cor da borda */
+  background-color: #fff; /* Cor de fundo */
+  transition: background-color 0.3s, border 0.3s;
+}
+
+input[type="checkbox"]:hover{
+  background-color: #333;
+  text-decoration: underline white; /* Cor de fundo ao passar o mouse */
+  border: 2px solid #fff; /* Cor da borda ao passar o mouse */
+}
+
+
 
 @media screen and (max-width: 768px) {
 

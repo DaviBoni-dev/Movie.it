@@ -62,35 +62,72 @@
     <p>Carregando...</p>
 </div>
 
-    <section class="find-container">
-        <form action="" method="get">
-            <fieldset>
-                <label for="genero">Escolha um gênero:</label>
-                <select id="genero" name="genero">
-                  <option value="null" disabled selected>Gênero</option>
-                  <option value="action">Action</option>
-                  <option value="adventure">Adventure</option>
-                  <option value="animation">Animation</option>
-                  <option value="comedy">Comedy</option>
-                  <option value="crime">Crime</option>
-                  <option value="documentary">Documentary</option>
-                  <option value="drama">Drama</option>
-                  <option value="family">Family</option>
-                  <option value="fantasy">Fantasy</option>
-                  <option value="history">History</option>
-                  <option value="horror">Horror</option>
-                <option value="music">Music</option>
-                <option value="mistery">Mistery</option>
-                <option value="romance">Romance</option>
-                <option value="science-fiction">Science Fiction</option>
-                <option value="tv-movie">TV Movie</option>
-                <option value="thriller">Thriller</option>
-                <option value="war">War</option>
-                <option value="western">Western</option>
-                </select>
-            </fieldset>
+    <aside class="find-container">
+        <form action="" method="" id="movieForm" class="find-container-form">
+            <div class="fieldset-gender">
+              <label>Choose gender:</label>
+              <fieldset id="generosOp">
+                  <label>
+                      <input type="checkbox" name="genero" value="Action"> Action
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Adventure"> Adventure
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Animation"> Animation
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Comedy"> Comedy
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Crime"> Crime
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Documentary"> Documentary
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Drama"> Drama
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Family"> Family
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Fantasy"> Fantasy
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="History"> History
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Horror"> Horror
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Music"> Music
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Mystery"> Mistery
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Romance"> Romance
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Science Fiction"> Science Fiction
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="TV Movie"> TV Movie
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Thriller"> Thriller
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="War"> War
+                  </label><br>
+                  <label>
+                      <input type="checkbox" name="genero" value="Western"> Western
+                  </label>
+              </fieldset>
+            </div>
 
-            <fieldset>
+            <fieldset class="fieldset-order">
                 <label for="order">Order by:</label>
                 <select name="order" id="order">
                     <option value="popularity">Popularity</option>
@@ -99,43 +136,40 @@
                 </select>
                 </fieldset>
 
-                <fieldset>
+                <fieldset class="fieldset-ordertype">
                     <legend>Sort Order</legend>
                     <label>
-                        <input type="radio" name="order" value="desc" checked> Descending
+                        <input type="radio" name="ordertype" value="desc" checked> Descending
                     </label>
+                    <br>
                     <label>
-                        <input type="radio" name="order" value="asc"> Ascending
+                        <input type="radio" name="ordertype" value="asc"> Ascending
                     </label>
                 </fieldset>
 
-            <fieldset>     
+            <fieldset class="fieldset-watch">     
                 <p>Watch Providers:</p>        
-                    <input type="checkbox" id="disney" name="watch" value="Disney">
+                    <input type="checkbox" id="disney" name="watch" value="Disney Plus">
                     <label for="disney">Disney +</label><br>
                     <input type="checkbox" id="netflix" name="watch" value="Netflix">
                     <label for="netflix">Netflix</label><br>
-                    <input type="checkbox" id="amazon-prime-video" name="watch" value="Amazon-prime-video">
-                    <label for="amazon-prime-video">Amazon Prime Video</label>
-                    <input type="checkbox" id="hbo-max" name="watch" value="HBO Max">
-                    <label for="hbo-max">Max</label>
-                    <input type="checkbox" id="hulu" name="watch" value="Hulu">
-                    <label for="hulu">Hulu</label>
-                    <input type="checkbox" id="apple-tv-plus" name="watch" value="Apple TV Plus">
-                    <label for="apple-tv-plus">Apple TV</label>
-                    <input type="checkbox" id="peacock" name="watch" value="Peacock">
-                    <label for="peacock">Peacock</label>
+                    <input type="checkbox" id="amazon-prime-video" name="watch" value="Amazon Prime Video">
+                    <label for="amazon-prime-video">Amazon Prime Video</label><br>
+                    <input type="checkbox" id="hbo-max" name="watch" value="Max">
+                    <label for="hbo-max">Max</label><br>
+                    <input type="checkbox" id="apple-tv-plus" name="watch" value="Apple TV">
+                    <label for="apple-tv-plus">Apple TV</label><br>
                     <input type="checkbox" id="paramount-plus" name="watch" value="Paramount Plus">
-                    <label for="paramount-plus">Paramount Plus</label>
+                    <label for="paramount-plus">Paramount Plus</label><br>
                     <input type="checkbox" id="globoplay" name="watch" value="Globoplay">
-                    <label for="globoplay">Globoplay</label>
+                    <label for="globoplay">Globoplay</label><br>
             </fieldset>
 
             <button id="button-findmovie">Find movie</button>
          
 
         </form>
-    </section>
+      </aside>
 
     <section class="genres-container" id="genres-grid">
       
