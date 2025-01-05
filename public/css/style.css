@@ -312,11 +312,26 @@ header {
   font-size: 1.11rem;
 }
 
-.find-container{
+.find-container-box {
   display: flex;
-  width: 15%;
-  padding: 1.6rem 3.12rem;
+  align-items: flex-start; /* Garante que os elementos se alinhem ao topo */
 }
+
+.find-container {
+  display: flex;
+  flex-direction: column; /* Mantém os elementos internos do aside em coluna */
+  width: 20%; /* Define uma largura fixa ou relativa para o aside */
+  padding: 1.6rem 3.12rem;
+  height: auto; /* Permite que o aside tenha altura automática */
+}
+
+.genres-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os elementos do section se quebrem em várias linhas */
+  width: 75%; /* Define a largura do section */
+  gap: 1rem; /* Adiciona espaçamento entre os itens */
+}
+
 
 .find-container-form fieldset{
   border:none;
@@ -335,6 +350,9 @@ input[type="checkbox"]:hover{
   text-decoration: underline white; /* Cor de fundo ao passar o mouse */
   border: 2px solid #fff; /* Cor da borda ao passar o mouse */
 }
+
+
+
 
 
 

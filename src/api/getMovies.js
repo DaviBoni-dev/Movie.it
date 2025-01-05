@@ -166,3 +166,17 @@ export async function getOneIdByGenre(genre){
     }
   }
 }
+
+export async function getMoviesByQuery(query){
+  try{
+    console.log(query);
+    const response = await fetch(query);
+    const data = await response.json();
+    let result = data.results;
+     result = adjustArray(result);
+    return result;
+  }
+  catch(error){
+    throw error;
+  }
+}

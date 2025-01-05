@@ -1,11 +1,8 @@
 import key from "../../src/components/key.js";
-import { getWatchProviderId, getOneIdByGenre } from "../../src/api/getMovies.js";
+import { getWatchProviderId, getOneIdByGenre, getMoviesByQuery } from "../../src/api/getMovies.js";
+import { createMoviesCarousel } from "../../src/components/carousel.js";
 
-const button = document.getElementById('button-findmovie');
-const selectGenre = document.getElementById('genero');
 const order = document.getElementById('order');
-const errorContainer = document.getElementById('error-container');
-const form = document.getElementById('movieForm');
 
 const genres = document.querySelectorAll('input[name="genero"]');
 const watchProviders = document.querySelectorAll('input[name="watch"]');
@@ -16,21 +13,17 @@ let idsGenre = [];
 const orderValue = order.value;
 const sortOrder = document.querySelector('input[name="ordertype"]:checked').value;
 
-async function createGenreQuery(genreArray){
-    let idsGenre = [];
-    console.log(genreArray)
-    for(const genre of genreArray){
-        let id = await getOneIdByGenre(genre);
-        console.log(id);
-        idsGenre.push(id);
-    }
+const sectionGrid = document.getElementById('genres-grid');
 
-    let queryGenre = idsGenre.join('|');
-    let query = `with_genres=${queryGenre}`;
-    query = encodeURI(query);
-    return query;
+document.addEventListener('DOMContentLoaded', async function() {
+    let query = createFindQuery(watchProvidersArray, sortOrder, orderValue, genresSelectedArray);
+    
+    let moviesCarrousel = await createMoviesCarousel(getMoviesByQuery, 'discover', query);
+    sectionGrid.innerHTML = moviesCarrousel;
+    
+});
 
-}
+
 
 genres.forEach(genre => { genre.addEventListener('change', async function() {
     if(genre.checked) {
@@ -40,8 +33,7 @@ genres.forEach(genre => { genre.addEventListener('change', async function() {
         genresSelectedArray.splice(index, 1);
     }
 
-    //console.log(genresSelectedArray);
-    //idsGenre = await createGenreQuery(genresSelectedArray);
+
     createFindQuery(watchProvidersArray, sortOrder, orderValue, genresSelectedArray);
 
 })});
@@ -58,31 +50,36 @@ watchProviders.forEach(provider => { provider.addEventListener('change', functio
 })});
 
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     const errorContainer = document.getElementById('error-container');
 
-//     form.addEventListener('submit', function(event) {
 
-//         event.preventDefault();
-//         const orderValue = order.value;
-//         const sortOrder = document.querySelector('input[name="ordertype"]:checked').value;
-//         //console.log(watchProvidersArray);
-//         //console.log(sortOrder);
-//         //console.log(orderValue);
-//         //console.log(genresSelectedArray);
-//         const query = createFindQuery(watchProvidersArray, sortOrder, orderValue, genresSelectedArray);
-//         //console.log(query);
-//     });
-// });
+// async function createFindQuery(watchProvidersArray, sortOrder, orderValue, genresSelectedArray) {
+//      let query = `'https://api.themoviedb.org/3/discover/movie?`;
+//      query += `api_key=${key}&region=BR&`;
+//      //console.log(watchProvidersArray);
+//      //let queryGenre = await createGenreQuery(genresSelectedArray);
+//      let queryOrder = `sort_by=${orderValue}.${sortOrder}`;
+//      //if(genresSelectedArray.length != 0)
+//      //query += queryGenre;
 
-async function createFindQuery(watchProvidersArray, sortOrder, orderValue, genresSelectedArray) {
-     let query = `'https://api.themoviedb.org/3/discover/movie?`;
-     query += `api_key=${key}&region=BR&`;
-     //console.log(watchProvidersArray);
-     let queryGenre = await createGenreQuery(genresSelectedArray);
-     query += queryGenre;
-     console.log(query);
+//      query += queryOrder;
+
+//      return query;
+     
+// }
+
+function createFindQuery(watchProvidersArray, sortOrder, orderValue, genresSelectedArray) {
+    const baseURL = 'https://api.themoviedb.org/3/discover/movie';
+    const apiKey = `${key}`;
+    const region = 'BR';
+    const sortBy = encodeURIComponent(orderValue + '.' + sortOrder);
+
+   // const genres = genresSelectedArray.join(',');
+    //const watchProviders = watchProvidersArray.join('|');
+
+    return `${baseURL}?api_key=${apiKey}&region=${region}&sort_by=${sortBy}`
+   // &with_genres=${genres}&with_watch_providers=${watchProviders}`;
 }
+
 
 async function createWatchProvidersQuery(watchProvidersArray){
     let query = "";
@@ -100,3 +97,18 @@ console.log(idsArray);
     return query;
 }
 
+async function createGenreQuery(genreArray){
+    let idsGenre = [];
+    console.log(genreArray);
+    for(const genre of genreArray){
+        let id = await getOneIdByGenre(genre);
+        console.log(id);
+        idsGenre.push(id);
+    }
+
+    let queryGenre = idsGenre.join('|');
+    let query = `with_genres=${queryGenre}`;
+    query = encodeURI(query);
+    return query;
+
+}
