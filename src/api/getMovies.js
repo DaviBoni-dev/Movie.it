@@ -55,11 +55,11 @@ function adjustArray(moviesArray) {
     }
   }
 
-  if(moviesArray[0].known_for != undefined){
-    console.log("moviesArray tem um ator");
-    //moviesArray = moviesArray[0].known_for;
-    moviesArray = moviesArray[0].known_for.concat(moviesArray);
-  }
+  // if(moviesArray[0].known_for != undefined){
+  //   console.log("moviesArray tem um ator");
+  //   //moviesArray = moviesArray[0].known_for;
+  //   moviesArray = moviesArray[0].known_for.concat(moviesArray);
+  // }
 
   return moviesArray;
 }
@@ -141,15 +141,19 @@ export async function getWatchProviderId(watchProvider){
     const response = await fetch(url);
     const data = await response.json();
     let result = data.results;
+    let id;
     //console.log("data: ", result);
     result.sort((a, b) => a.display_priority - b.display_priority);
    
     result.forEach(provider => {
       if(provider.provider_name === watchProvider){
         console.log("id: ", provider.provider_id);
-        return provider.provider_id;
+        id = provider.provider_id;
+        return id;
       }
     });
+
+    return id;
     
   }
   catch(error){
@@ -167,16 +171,31 @@ export async function getOneIdByGenre(genre){
   }
 }
 
-export async function getMoviesByQuery(query){
+export async function getMoviesByQuery(query, vote = false){
   try{
     console.log(query);
     const response = await fetch(query);
     const data = await response.json();
     let result = data.results;
-     result = adjustArray(result);
+    result = adjustArray(result);
+    if(vote){
+      result = adjustVoteCountArray(result);
+    }
+    //result = adjustVoteCountArray(result);
     return result;
   }
   catch(error){
     throw error;
   }
+}
+
+function adjustVoteCountArray(moviesArray){
+  let result = [];
+  for(const movie of moviesArray){
+    if(movie.vote_count > 100){
+      result.push(movie);
+    }
+  }
+
+  return result;
 }
