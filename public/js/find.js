@@ -3,12 +3,15 @@ import { getWatchProviderId, getOneIdByGenre, getMoviesByQuery } from "../../src
 import { createMoviesCarouselWithArray } from "../../src/components/carousel.js";
 
 const order = document.getElementById('order');
+const loadmore_button = document.getElementById('find-loadmore-button');
 
 const genres = document.querySelectorAll('input[name="genero"]');
 const watchProviders = document.querySelectorAll('input[name="watch"]');
 let genresSelectedArray = [];
 let watchProvidersArray = [];
 let idsGenre = [];
+
+let page = 1;
 
 let orderValue = order.value;
 let sortOrder = document.querySelector('input[name="ordertype"]:checked').value;
@@ -30,6 +33,10 @@ order.addEventListener('change', async function() {
     updateMovies();
 })
 
+loadmore_button.addEventListener('click', async function() {
+    page++;
+    updateMovies(false);
+});
 
 
 document.addEventListener('DOMContentLoaded', async function() {
@@ -121,18 +128,23 @@ async function createGenreQuery(genreArray){
     return query;
 }
 
-async function updateMovies(){
-    let page = 1;
+async function updateMovies(creating = true){
     let vote = false;
+    console.log(`creating ${creating}`);
     orderValue = order.value;
     if(orderValue === 'vote_average'){
         vote = true;
     }
     sortOrder = document.querySelector('input[name="ordertype"]:checked').value;
     
-    let query = await createFindQuery(watchProvidersArray, sortOrder, orderValue, genresSelectedArray);
+    let query = await createFindQuery(watchProvidersArray, sortOrder, orderValue, genresSelectedArray, page);
     let moviesArray = await getMoviesByQuery(query, vote);
     let moviesCarrousel = await createMoviesCarouselWithArray(moviesArray, 'discover');
-    sectionGrid.innerHTML = moviesCarrousel;
+    if(creating){
+        sectionGrid.innerHTML = moviesCarrousel;
+    } else {
+        sectionGrid.innerHTML += moviesCarrousel;
+
+    }
     console.log(moviesArray);
 }

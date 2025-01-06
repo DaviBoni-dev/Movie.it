@@ -322,7 +322,9 @@ header {
   flex-direction: column; /* Mantém os elementos internos do aside em coluna */
   width: 20%; /* Define uma largura fixa ou relativa para o aside */
   padding: 1.6rem 3.12rem;
-  height: auto; /* Permite que o aside tenha altura automática */
+  height: fit-content; /* Permite que o aside tenha altura automática */
+  border-right: #333 0.1rem solid; /* Adiciona uma borda à direita do aside */
+
 }
 
 .genres-container {
@@ -350,11 +352,6 @@ input[type="checkbox"]:hover{
   text-decoration: underline white; /* Cor de fundo ao passar o mouse */
   border: 2px solid #fff; /* Cor da borda ao passar o mouse */
 }
-
-
-
-
-
 
 @media screen and (max-width: 768px) {
 
@@ -412,4 +409,54 @@ input[type="checkbox"]:hover{
     border-radius: 0;
     max-width:none;
   }
+
+  .find-container{
+    width: 20%;
+  }
+
+  .genres-container{
+    display: flex;
+    width: 100%;
+  }
+
+  .find-container{
+    display: none;
+  }
+
+  /* .find-container-box{
+    display:block;
+  } */
+
+  
+
+  /* .find-container {
+    width: 100%;
+    border-right: none;  
+  }
+  
+  .genres-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os elementos do section se quebrem em várias linhas 
+    width: 100%; /* Define a largura do section 
+    gap: 1rem; /* Adiciona espaçamento entre os itens 
+  }
+
+  .find-container-form fieldset{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+  .find-container-form fieldset label{
+    margin-right: 1rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  legend, .%ender-label{
+    text-align: center;
+  } */
 }

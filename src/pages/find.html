@@ -68,7 +68,7 @@
       <aside class="find-container">
           <form action="" method="" id="movieForm" class="find-container-form">
               <div class="fieldset-gender">
-                <label>Choose gender:</label>
+                <label class="gender-label">Choose gender:</label>
                 <fieldset id="generosOp">
                     <label>
                         <input type="checkbox" name="genero" value="Action"> Action
@@ -151,7 +151,8 @@
                   </fieldset>
   
               <fieldset class="fieldset-watch">
-                  <p>Watch Providers:</p>
+                  <legend>Watch Providers</legend>         
+                  
                       <input type="checkbox" id="disney" name="watch" value="Disney Plus">
                       <label for="disney">Disney +</label><br>
                       <input type="checkbox" id="netflix" name="watch" value="Netflix">
@@ -175,7 +176,12 @@
       <section class="genres-container" id="genres-grid">
        
               </section>
-</div>
+
+            </div>
+            <section class="loadmore-button-container">        
+              <button class="loadmore-button" id="find-loadmore-button" type="button">Load more</button>
+            </section>
+
     <script type="module" src="../components/menu.js"></script>
     <script type="module" src="../../public/js/find.js">
     </script>
