@@ -81,6 +81,37 @@ nextPopularButton.addEventListener("click", () => {
   });
 });
 
+// Detecta deslizes na área do carrossel
+let startX = 0;
+let endX = 0;
+
+// Captura o toque inicial
+carouselPopularEl.addEventListener("touchstart", (event) => {
+  startX = event.touches[0].clientX;
+});
+
+// Captura o toque final e calcula a direção
+carouselPopularEl.addEventListener("touchend", (event) => {
+  endX = event.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+// Função para lidar com o deslize
+function handleSwipe() {
+  const deltaX = endX - startX;
+
+  // Define um limite mínimo para considerar como deslize
+  const threshold = 10; // Ajuste conforme necessário para ignorar pequenos movimentos
+
+  if (Math.abs(deltaX) > threshold) {
+    // Desliza a quantidade exata do movimento
+    carouselPopularEl.scrollBy({
+      left: -deltaX, // Negativo para rolar na direção oposta do deslize
+      behavior: "smooth",
+    });
+  }
+}
+
 const prevTrendingButton = document.getElementById("prev-trending");
 const nextTrendingButton = document.getElementById("next-trending");
 
