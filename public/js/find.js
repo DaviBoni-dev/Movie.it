@@ -4,6 +4,8 @@ import { createMoviesCarouselWithArray } from "../../src/components/carousel.js"
 
 const order = document.getElementById('order');
 const loadmore_button = document.getElementById('find-loadmore-button');
+const filterButton = document.getElementById('filtros');
+const findContainer = document.getElementById('find-container');
 
 const genres = document.querySelectorAll('input[name="genero"]');
 const watchProviders = document.querySelectorAll('input[name="watch"]');
@@ -17,6 +19,10 @@ let orderValue = order.value;
 let sortOrder = document.querySelector('input[name="ordertype"]:checked').value;
 
 const sectionGrid = document.getElementById('genres-grid');
+
+filterButton.addEventListener('click', function() {
+    findContainer.classList.toggle('appear');
+});
 
 const radioButtons = document.querySelectorAll('input[name="ordertype"]');
 

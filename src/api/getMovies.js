@@ -55,11 +55,11 @@ function adjustArray(moviesArray) {
     }
   }
 
-  // if(moviesArray[0].known_for != undefined){
-  //   console.log("moviesArray tem um ator");
-  //   //moviesArray = moviesArray[0].known_for;
-  //   moviesArray = moviesArray[0].known_for.concat(moviesArray);
-  // }
+  if(moviesArray[0].known_for != undefined){
+    console.log("moviesArray tem um ator");
+    //moviesArray = moviesArray[0].known_for;
+    moviesArray = moviesArray[0].known_for.concat(moviesArray);
+  }
 
   return moviesArray;
 }
