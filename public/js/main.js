@@ -86,12 +86,12 @@ let startX = 0; // Posição inicial do toque
 let scrollLeft = 0; // Posição inicial do scroll
 
 // Função para calcular o quanto o carrossel deve rolar
-function moveCarousel(event) {
+function moveCarousel(event, carousel) {
   if (!isTouching) return;
   
   const x = event.touches[0].clientX; // Posição do toque
   const distance = startX - x; // Distância percorrida
-  carouselPopularEl.scrollLeft = scrollLeft + distance; // Atualiza o scroll
+  carousel.scrollLeft = scrollLeft + distance; // Atualiza o scroll
 }
 
 // Quando o toque começa
@@ -102,7 +102,9 @@ carouselPopularEl.addEventListener("touchstart", (event) => {
 });
 
 // Quando o toque se move
-carouselPopularEl.addEventListener("touchmove", moveCarousel);
+carouselPopularEl.addEventListener("touchmove", () => {
+  moveCarousel(event, carouselPopularEl);
+});
 
 // Quando o toque termina
 carouselPopularEl.addEventListener("touchend", () => {
@@ -131,8 +133,31 @@ nextTrendingButton.addEventListener("click", () => {
   });
 });
 
+// Quando o toque começa
+carouselUpcomingEl.addEventListener("touchstart", (event) => {
+  isTouching = true;
+  startX = event.touches[0].clientX; // Posição inicial
+  scrollLeft = carouselPopularEl.scrollLeft; // Posição atual do scroll
+});
+
+// Quando o toque se move
+carouselUpcomingEl.addEventListener("touchmove", () => {
+  moveCarousel(event, carouselUpcomingEl);
+});
+
+// Quando o toque termina
+carouselUpcomingEl.addEventListener("touchend", () => {
+  isTouching = false;
+});
+
+carouselUpcomingEl.addEventListener("touchcancel", () => {
+  isTouching = false;
+});
+
+
 const prevUpcomingButton = document.getElementById("prev-upcoming");
 const nextUpcomingButton = document.getElementById("next-upcoming");
+
 prevUpcomingButton.addEventListener("click", () => {
   carouselUpcomingEl.scrollBy({
     left: -scrollAmount,
@@ -146,6 +171,28 @@ nextUpcomingButton.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
+
+// Quando o toque começa
+carouselTrendingEl.addEventListener("touchstart", (event) => {
+  isTouching = true;
+  startX = event.touches[0].clientX; // Posição inicial
+  scrollLeft = carouselPopularEl.scrollLeft; // Posição atual do scroll
+});
+
+// Quando o toque se move
+carouselTrendingEl.addEventListener("touchmove", () => {
+  moveCarousel(event, carouselTrendingEl);
+});
+
+// Quando o toque termina
+carouselTrendingEl.addEventListener("touchend", () => {
+  isTouching = false;
+});
+
+carouselTrendingEl.addEventListener("touchcancel", () => {
+  isTouching = false;
+});
+
 
 const dayButton = document.getElementById("trending-day-button");
 const weekButton = document.getElementById("trending-week-button");
