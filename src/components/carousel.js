@@ -1,6 +1,5 @@
 export async function createMoviesCarousel(func, type, trendingtype = null) {
   const moviesArray = await func(trendingtype);
-  console.log(moviesArray);
   let carouselHTML = "";
 
   if(moviesArray.length == 0){
@@ -23,7 +22,6 @@ export async function createMoviesCarousel(func, type, trendingtype = null) {
 
   </div>`;
   }
- // console.log(carouselHTML);
   return carouselHTML;
 };
 
@@ -50,7 +48,6 @@ export async function createMoviesCarouselWithArray(moviesArray, type){
 
   </div>`;
   }
- // console.log(carouselHTML);
   return carouselHTML;
 }
 

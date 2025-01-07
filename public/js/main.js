@@ -133,3 +133,8 @@ weekButton.addEventListener("click", () => {
   carouselTrendingEl.scrollLeft -= 1000000;
 });
 
+  imagesLoaded('body', function () {
+  });
+
+  window.addEventListener('load', function() {
+  });

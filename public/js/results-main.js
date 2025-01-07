@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     //if (movieName) {
     //    await putSearchResults(movieName);
     //}
-    console.log(movieName);
     putSearchResults(movieName);
 });
 
