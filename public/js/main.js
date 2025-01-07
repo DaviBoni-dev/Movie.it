@@ -81,37 +81,36 @@ nextPopularButton.addEventListener("click", () => {
   });
 });
 
-// Variáveis para acompanhar o movimento
-let startX = 0;
-let currentX = 0;
-let isDragging = false;
+let isTouching = false; // Flag para saber se o usuário está tocando
+let startX = 0; // Posição inicial do toque
+let scrollLeft = 0; // Posição inicial do scroll
 
-// Captura o toque inicial
+// Função para calcular o quanto o carrossel deve rolar
+function moveCarousel(event) {
+  if (!isTouching) return;
+  
+  const x = event.touches[0].clientX; // Posição do toque
+  const distance = startX - x; // Distância percorrida
+  carouselPopularEl.scrollLeft = scrollLeft + distance; // Atualiza o scroll
+}
+
+// Quando o toque começa
 carouselPopularEl.addEventListener("touchstart", (event) => {
-  startX = event.touches[0].clientX; // Posição inicial do toque
-  isDragging = true; // Marca que o usuário está deslizando
+  isTouching = true;
+  startX = event.touches[0].clientX; // Posição inicial
+  scrollLeft = carouselPopularEl.scrollLeft; // Posição atual do scroll
 });
 
-// Atualiza o movimento em tempo real
-carouselPopularEl.addEventListener("touchmove", (event) => {
-  if (!isDragging) return;
+// Quando o toque se move
+carouselPopularEl.addEventListener("touchmove", moveCarousel);
 
-  currentX = event.touches[0].clientX; // Posição atual do toque
-  const deltaX = currentX - startX; // Distância desde o início do deslize
-
-  // Aplica o movimento diretamente no carrossel
-  carouselPopularEl.scrollBy({
-    left: -deltaX, // Movimento proporcional ao deslize
-    behavior: "auto", // "auto" para resposta imediata
-  });
-
-  // Atualiza a posição inicial para continuar o movimento
-  startX = currentX;
-});
-
-// Finaliza o deslize
+// Quando o toque termina
 carouselPopularEl.addEventListener("touchend", () => {
-  isDragging = false; // Interrompe o movimento
+  isTouching = false;
+});
+
+carouselPopularEl.addEventListener("touchcancel", () => {
+  isTouching = false;
 });
 
 const prevTrendingButton = document.getElementById("prev-trending");
