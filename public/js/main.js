@@ -81,36 +81,38 @@ nextPopularButton.addEventListener("click", () => {
   });
 });
 
-// Detecta deslizes na área do carrossel
+// Variáveis para acompanhar o movimento
 let startX = 0;
-let endX = 0;
+let currentX = 0;
+let isDragging = false;
 
 // Captura o toque inicial
 carouselPopularEl.addEventListener("touchstart", (event) => {
-  startX = event.touches[0].clientX;
+  startX = event.touches[0].clientX; // Posição inicial do toque
+  isDragging = true; // Marca que o usuário está deslizando
 });
 
-// Captura o toque final e calcula a direção
-carouselPopularEl.addEventListener("touchend", (event) => {
-  endX = event.changedTouches[0].clientX;
-  handleSwipe();
+// Atualiza o movimento em tempo real
+carouselPopularEl.addEventListener("touchmove", (event) => {
+  if (!isDragging) return;
+
+  currentX = event.touches[0].clientX; // Posição atual do toque
+  const deltaX = currentX - startX; // Distância desde o início do deslize
+
+  // Aplica o movimento diretamente no carrossel
+  carouselPopularEl.scrollBy({
+    left: -deltaX, // Movimento proporcional ao deslize
+    behavior: "auto", // "auto" para resposta imediata
+  });
+
+  // Atualiza a posição inicial para continuar o movimento
+  startX = currentX;
 });
 
-// Função para lidar com o deslize
-function handleSwipe() {
-  const deltaX = endX - startX;
-
-  // Define um limite mínimo para considerar como deslize
-  const threshold = 10; // Ajuste conforme necessário para ignorar pequenos movimentos
-
-  if (Math.abs(deltaX) > threshold) {
-    // Desliza a quantidade exata do movimento
-    carouselPopularEl.scrollBy({
-      left: -deltaX, // Negativo para rolar na direção oposta do deslize
-      behavior: "smooth",
-    });
-  }
-}
+// Finaliza o deslize
+carouselPopularEl.addEventListener("touchend", () => {
+  isDragging = false; // Interrompe o movimento
+});
 
 const prevTrendingButton = document.getElementById("prev-trending");
 const nextTrendingButton = document.getElementById("next-trending");
